@@ -1,0 +1,19 @@
+
+libjpeg的编译
+
+
+编译好的 libjpeg.dll 在目录 jpegsr6_dll\jpeg-6b 下
+
+libjpeg.lib 是动态库,libjpeg_static.lib 是静态库.
+
+要自己编译的话有以下几点为注意的:
+
+要把文件jconfig.vc更名为jconig.h
+
+
+原始的 makefile 只能编译成静态库,因此复制修改出可编译出动态库的 makefile_vc6.mak 文件,
+因为编译出 dll 后会自动再生成对应的 lib ,所以对静态库还要重命名.
+编译环境为 vc6 ,其实因为没有真正用到太多 vc 运行库的内容,所以实际上用 vs2010 编译出来的
+dll 应该也不用带上 vc2010 的运行库(可能是因为与 VC 静态编译的程序类似吧).
+工程名为 makefile_vc62.dsw ,只是简单的用 vc6 打开 makefile 后形成的,可随意重建.
+
